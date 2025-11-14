@@ -25,7 +25,7 @@ class RNG:
         return a + (b-a) * self.random()
     
 
-    def gen_data(random: RNG, n=100):
+def gen_data(random: RNG, n=100):
         
         # Initialize an empty list to store data points
         pts = []
@@ -37,11 +37,10 @@ class RNG:
             y = random.uniform(-2.0, 2.0)
 
             label = 0 if x < 0 else 1 if y < 0 else 2
-
             pts.append(([x, y], label))
 
-            tr = pts[:int(0.8*n)]
-            val = pts[int(0.8*n):int(0.9*n)]
-            te = pts[int(0.9*n):]
+        tr = pts[:int(0.8*n)]
+        val = pts[int(0.8*n):int(0.9*n)]
+        te = pts[int(0.9*n):]
 
-            return tr, val, te
+        return tr, val, te
